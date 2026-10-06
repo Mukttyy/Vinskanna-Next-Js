@@ -6,15 +6,21 @@ import { notify } from '@/components/StatusToast';
 
 interface ProductCardProps {
   product: Product;
+  isWishlistPage?: boolean;
 }
 
-export function ProductCard({ product }: ProductCardProps) {
-  const { wishlist, addToCart, toggleWishlist } = useStoreState();
+export function ProductCard({ product, isWishlistPage = false }: ProductCardProps) {
+  const { wishlist, addToCart, toggleWishlist, moveToCart } = useStoreState();
   const isWishlisted = wishlist.some((p) => p.id === product.id);
 
   const handleAddToCart = () => {
-    const res = addToCart(product.id);
-    notify(res.message);
+    if (isWishlistPage) {
+      const res = moveToCart(product.id);
+      notify(res.message);
+    } else {
+      const res = addToCart(product.id);
+      notify(res.message);
+    }
   };
 
   const handleToggleWishlist = () => {

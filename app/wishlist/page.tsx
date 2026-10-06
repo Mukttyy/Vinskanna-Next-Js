@@ -20,7 +20,7 @@ export default function WishlistPage() {
             <p className="text-center text-muted">Tidak ada produk untuk ditampilkan.</p>
           ) : (
             wishlist.map((product) => (
-              <ProductCard key={product.id} product={product} />
+              <ProductCard key={product.id} product={product} isWishlistPage />
             ))
           )}
         </div>

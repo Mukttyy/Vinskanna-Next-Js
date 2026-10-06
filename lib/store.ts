@@ -163,6 +163,18 @@ export function useStoreState() {
     };
   }, []);
 
+  const moveToCart = useCallback((productId: string): { success: boolean; message: string } => {
+    const addResult = addToCart(productId);
+    if (!addResult.success) return addResult;
+
+    const currentWishlist = readWishlist();
+    const updatedWishlist = currentWishlist.filter(p => p.id !== productId);
+    writeWishlist(updatedWishlist);
+    setWishlist(updatedWishlist);
+
+    return { success: true, message: 'Produk dipindahkan ke keranjang belanja.' };
+  }, [addToCart]);
+
   const updateCartQuantity = useCallback((productId: string, qty: number): boolean => {
     if (!Number.isInteger(qty) || qty < 1 || qty > maxQuantity) return false;
     const current = readCart();
@@ -200,6 +212,7 @@ export function useStoreState() {
     totalWishlistCount,
     addToCart,
     toggleWishlist,
+    moveToCart,
     updateCartQuantity,
     removeCartItem,
     removeSelectedCart,
