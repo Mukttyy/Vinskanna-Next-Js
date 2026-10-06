@@ -3,6 +3,7 @@ import { Suspense } from 'react';
 import '@/public/bootstrap-5.0.2-dist/css/bootstrap.min.css';
 import '@/css/main.css';
 import '@/css/typography.css';
+import '@/app/tailwind.css';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { StatusToast } from '@/components/StatusToast';
