@@ -4,12 +4,14 @@ import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useState, useRef, useEffect } from 'react';
 import { useStoreState } from '@/lib/store';
+import { useOrdersState } from '@/lib/orderStore';
 import { storeConfig } from '@/data/config';
 
 export function Navbar() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const { totalCartCount, totalWishlistCount, isLoaded } = useStoreState();
+  const { orders } = useOrdersState();
 
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -76,6 +78,18 @@ export function Navbar() {
         </Link>
 
         <div className="order-lg-2 nav-btns">
+          <Link href="/orders" className="btn position-relative" aria-label="Pesanan Saya" title="Pesanan Saya">
+            <svg className="nav-icon" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false">
+              <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <path d="M16 10a4 4 0 0 1-8 0"></path>
+            </svg>
+            {isLoaded && orders.length > 0 && (
+              <span data-orders-count="" className="badge bg-primary">
+                {orders.length}
+              </span>
+            )}
+          </Link>
           <Link href="/cart" className="btn position-relative" aria-label="Keranjang" title="Keranjang">
             <svg className="nav-icon" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false">
               <circle cx="9" cy="21" r="1"></circle>
@@ -162,6 +176,9 @@ export function Navbar() {
             </li>
             <li className="nav-item px-2 py-2">
               <Link className="nav-link text-uppercase text-dark" href="/#about" onClick={() => setIsNavOpen(false)}>about us</Link>
+            </li>
+            <li className="nav-item px-2 py-2">
+              <Link className="nav-link text-uppercase text-dark" href="/orders" onClick={() => setIsNavOpen(false)}>pesanan</Link>
             </li>
           </ul>
         </div>

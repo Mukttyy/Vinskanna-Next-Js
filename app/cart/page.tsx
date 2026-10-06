@@ -2,11 +2,14 @@
 
 import { useState, useMemo } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { useStoreState, money, maxQuantity } from '@/lib/store';
+import { setCheckoutSelectedIds } from '@/lib/orderStore';
 import { storeConfig } from '@/data/config';
 import { notify } from '@/components/StatusToast';
 
 export default function CartPage() {
+  const router = useRouter();
   const {
     cart,
     wishlist,
@@ -84,6 +87,22 @@ export default function CartPage() {
     setVoucherCode('');
     setVoucherMessage('');
     setVoucherError(false);
+  };
+
+  const handleProceedToCheckout = () => {
+    if (currentSelected.size === 0) {
+      notify('Pilih minimal 1 produk untuk checkout.', 'warning');
+      return;
+    }
+    setCheckoutSelectedIds(Array.from(currentSelected));
+    if (typeof window !== 'undefined') {
+      if (claimedVoucher) {
+        window.sessionStorage.setItem('vinskanna:checkout_voucher', JSON.stringify(claimedVoucher));
+      } else {
+        window.sessionStorage.removeItem('vinskanna:checkout_voucher');
+      }
+    }
+    router.push('/checkout');
   };
 
   const selectedItems = cart.filter((item) => currentSelected.has(item.id));
@@ -348,11 +367,18 @@ export default function CartPage() {
                   </strong>
                 </div>
 
-                <p className="cart-shipping-note">Ongkir belum termasuk.</p>
-                <button type="button" className="btn cart-checkout" disabled>
-                  Checkout belum tersedia
+                <p className="cart-shipping-note">Ongkir dihitung saat proses checkout.</p>
+                <button
+                  type="button"
+                  className="btn cart-checkout"
+                  disabled={currentSelected.size === 0}
+                  onClick={handleProceedToCheckout}
+                >
+                  {currentSelected.size === 0 ? 'Pilih Produk untuk Checkout' : `Checkout (${totalItemCount})`}
                 </button>
-                <p className="cart-demo-note">Mode demo — pesanan dan pembayaran belum tersedia.</p>
+                <p className="cart-demo-note text-center mt-2 text-muted" style={{ fontSize: 'var(--text-caption)' }}>
+                  Pembayaran via Transfer Bank dengan audit manual.
+                </p>
               </aside>
             </div>
           )}
