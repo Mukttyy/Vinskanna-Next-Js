@@ -554,16 +554,19 @@ export default function OrderDetailPage({ params }: PageProps) {
                       {order.status === 'selesai' && (
                         <div className="mt-3 pt-2 border-top">
                           {existingReview && !reviewForm.isOpen ? (
-                            <div className="p-2 rounded bg-light">
+                            <div className="p-3 rounded-3" style={{ background: '#fdf5f6', border: '1px solid #f8d7dc' }}>
                               <div className="d-flex justify-content-between align-items-center mb-1">
-                                <div className="text-warning">
-                                  {'★'.repeat(existingReview.rating)}
-                                  {'☆'.repeat(5 - existingReview.rating)}
+                                <div className="text-warning d-flex align-items-center gap-1">
+                                  <span style={{ fontSize: '1.05rem', letterSpacing: '2px' }}>
+                                    {'★'.repeat(existingReview.rating)}
+                                  </span>
+                                  <span className="text-muted" style={{ fontSize: 'var(--text-caption)' }}>
+                                    {'☆'.repeat(5 - existingReview.rating)}
+                                  </span>
                                 </div>
                                 <button
                                   type="button"
-                                  className="btn btn-sm btn-link text-decoration-none p-0"
-                                  style={{ fontSize: 'var(--text-caption)' }}
+                                  className="btn-edit-review"
                                   onClick={() =>
                                     setReviewForms((prev) => ({
                                       ...prev,
@@ -575,10 +578,14 @@ export default function OrderDetailPage({ params }: PageProps) {
                                     }))
                                   }
                                 >
+                                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                                    <path d="M12 20h9"></path>
+                                    <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+                                  </svg>
                                   Ubah Ulasan
                                 </button>
                               </div>
-                              <p className="mb-0 text-dark fst-italic" style={{ fontSize: 'var(--text-caption)' }}>
+                              <p className="mb-0 text-dark fst-italic" style={{ fontSize: 'var(--text-small)' }}>
                                 "{existingReview.comment}"
                               </p>
                             </div>
@@ -587,13 +594,7 @@ export default function OrderDetailPage({ params }: PageProps) {
                               {!reviewForm.isOpen && !existingReview && (
                                 <button
                                   type="button"
-                                  className="btn btn-outline-primary w-100 fw-medium"
-                                  style={{
-                                    fontSize: 'var(--text-small)',
-                                    paddingTop: '7px',
-                                    paddingBottom: '7px',
-                                    borderRadius: '25px'
-                                  }}
+                                  className="btn-review-prompt"
                                   onClick={() =>
                                     setReviewForms((prev) => ({
                                       ...prev,
@@ -649,8 +650,7 @@ export default function OrderDetailPage({ params }: PageProps) {
                                   <div className="d-flex justify-content-end gap-2">
                                     <button
                                       type="button"
-                                      className="btn btn-sm btn-outline-secondary py-1"
-                                      style={{ fontSize: 'var(--text-caption)' }}
+                                      className="btn-review-cancel"
                                       onClick={() =>
                                         setReviewForms((prev) => ({
                                           ...prev,
@@ -662,8 +662,7 @@ export default function OrderDetailPage({ params }: PageProps) {
                                     </button>
                                     <button
                                       type="button"
-                                      className="btn btn-sm btn-primary text-white py-1"
-                                      style={{ fontSize: 'var(--text-caption)' }}
+                                      className="btn-review-submit"
                                       onClick={() => handleReviewSubmit(item.id)}
                                     >
                                       Kirim Ulasan
