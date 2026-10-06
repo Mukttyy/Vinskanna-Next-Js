@@ -109,10 +109,10 @@ body{
 }
 /* offers */
 #offers{
-    background: url(../images/asset/benner6.jpg) center/cover no-repeat;
+    background: #fea1ac url(../images/asset/benner6.jpg) left 30%/cover no-repeat;
 }
 #offers .row{
-    min-height: 60vh;
+    min-height: clamp(520px, 62vh, 580px);
 }
 .offers-content span{
     font-size: var(--text-section);
