@@ -1,6 +1,7 @@
 'use client';
 
-import { Suspense } from 'react';
+import { Suspense, useEffect } from 'react';
+import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { allProducts } from '@/data/products';
 import { ProductCard } from '@/components/ProductCard';
@@ -8,6 +9,10 @@ import { ProductCard } from '@/components/ProductCard';
 function SearchResultsContent() {
   const searchParams = useSearchParams();
   const rawQuery = (searchParams.get('q') || '').trim().slice(0, 200);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const matchedProducts = rawQuery
     ? allProducts.filter((p) =>
@@ -18,40 +23,54 @@ function SearchResultsContent() {
     : [];
 
   const titleText = rawQuery
-    ? `Hasil Pencarian untuk: ${rawQuery}`
-    : 'Silakan masukkan kata kunci pencarian.';
+    ? `Hasil Pencarian: ${rawQuery}`
+    : 'Pencarian Produk';
 
   return (
-    <section id="search-results" className="py-5" style={{ marginTop: '100px' }}>
+    <main id="search-results" className="cart-page" style={{ minHeight: '80vh' }}>
       <div className="container">
-        <div className="title text-center">
+        <div className="title text-center mb-4">
           <h2 id="search-title" className="position-relative d-inline-block">
             {titleText}
           </h2>
         </div>
-        <div id="results-content" className="row g-0 mt-5">
+        <div id="results-content" className="mt-4">
           {!rawQuery || matchedProducts.length === 0 ? (
-            <p className="text-center text-muted">Tidak ada produk untuk ditampilkan.</p>
+            <div className="cart-empty">
+              <h3>Produk tidak ditemukan</h3>
+              <p>
+                {rawQuery
+                  ? `Tidak ada buket bunga yang cocok dengan kata kunci "${rawQuery}". Coba kata kunci lain.`
+                  : 'Silakan ketikkan nama bunga atau buket yang ingin dicari pada kolom pencarian.'}
+              </p>
+              <Link href="/#collection" className="btn">
+                Jelajahi Koleksi
+              </Link>
+            </div>
           ) : (
-            matchedProducts.map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))
+            <div className="row g-0">
+              {matchedProducts.map((product) => (
+                <ProductCard key={product.id} product={product} />
+              ))}
+            </div>
           )}
         </div>
       </div>
-    </section>
+    </main>
   );
 }
 
 export default function SearchResultsPage() {
   return (
-    <Suspense fallback={
-      <section id="search-results" className="py-5" style={{ marginTop: '100px' }}>
-        <div className="container text-center">
-          <p className="text-muted">Memuat hasil pencarian...</p>
-        </div>
-      </section>
-    }>
+    <Suspense
+      fallback={
+        <main className="cart-page" style={{ minHeight: '80vh' }}>
+          <div className="container text-center py-5">
+            <p className="text-muted">Memuat hasil pencarian...</p>
+          </div>
+        </main>
+      }
+    >
       <SearchResultsContent />
     </Suspense>
   );

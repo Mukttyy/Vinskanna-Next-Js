@@ -78,7 +78,13 @@ export function Navbar() {
         </Link>
 
         <div className="order-lg-2 nav-btns">
-          <Link href="/orders" className="btn position-relative" aria-label="Pesanan Saya" title="Pesanan Saya">
+          <Link
+            href="/orders"
+            className="btn position-relative"
+            aria-label="Pesanan Saya"
+            title="Pesanan Saya"
+            onClick={() => window.scrollTo(0, 0)}
+          >
             <svg className="nav-icon" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false">
               <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
               <line x1="3" y1="6" x2="21" y2="6"></line>
@@ -90,7 +96,13 @@ export function Navbar() {
               </span>
             )}
           </Link>
-          <Link href="/cart" className="btn position-relative" aria-label="Keranjang" title="Keranjang">
+          <Link
+            href="/cart"
+            className="btn position-relative"
+            aria-label="Keranjang"
+            title="Keranjang"
+            onClick={() => window.scrollTo(0, 0)}
+          >
             <svg className="nav-icon" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false">
               <circle cx="9" cy="21" r="1"></circle>
               <circle cx="20" cy="21" r="1"></circle>
@@ -100,7 +112,13 @@ export function Navbar() {
               {isLoaded ? totalCartCount : 0}
             </span>
           </Link>
-          <Link href="/wishlist" className="btn position-relative" aria-label="Wishlist" title="Wishlist">
+          <Link
+            href="/wishlist"
+            className="btn position-relative"
+            aria-label="Wishlist"
+            title="Wishlist"
+            onClick={() => window.scrollTo(0, 0)}
+          >
             <svg className="nav-icon" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false">
               <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"></path>
             </svg>

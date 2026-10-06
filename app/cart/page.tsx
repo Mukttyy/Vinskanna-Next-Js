@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useStoreState, money, maxQuantity } from '@/lib/store';
@@ -25,6 +25,10 @@ export default function CartPage() {
   const [claimedVoucher, setClaimedVoucher] = useState<{ code: string; percent: number } | null>(null);
   const [voucherMessage, setVoucherMessage] = useState('');
   const [voucherError, setVoucherError] = useState(false);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   // Sync selectedIds with cart items
   const currentSelected = useMemo(() => {
@@ -113,7 +117,7 @@ export default function CartPage() {
 
   if (!isLoaded) {
     return (
-      <main id="cart" className="cart-page">
+      <main className="cart-page">
         <div className="container">
           <div className="title text-center">
             <h2 className="position-relative d-inline-block">Keranjang Belanja</h2>
@@ -127,7 +131,7 @@ export default function CartPage() {
   }
 
   return (
-    <main id="cart" className="cart-page">
+    <main className="cart-page">
       <div className="container">
         <div className="title text-center">
           <h2 className="position-relative d-inline-block">Keranjang Belanja</h2>

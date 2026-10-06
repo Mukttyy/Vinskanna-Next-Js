@@ -37,6 +37,7 @@ export default function CheckoutPage() {
 
   // Initialize items from selection or cart
   useEffect(() => {
+    window.scrollTo(0, 0);
     if (!isLoaded) return;
 
     const selectedIds = getCheckoutSelectedIds();
@@ -135,13 +136,14 @@ export default function CheckoutPage() {
 
   if (checkoutItems.length === 0) {
     return (
-      <main className="cart-page" style={{ minHeight: '60vh' }}>
-        <div className="container py-5 text-center">
-          <div className="title mb-4">
+      <main className="cart-page" style={{ minHeight: '75vh' }}>
+        <div className="container">
+          <div className="title text-center mb-4">
             <h2 className="position-relative d-inline-block">Checkout Pesanan</h2>
           </div>
-          <p className="text-muted">Tidak ada produk yang dipilih untuk checkout.</p>
-          <div className="mt-4">
+          <div className="cart-empty mt-4">
+            <h3>Belum ada produk untuk checkout</h3>
+            <p>Pilih produk yang ingin Anda beli terlebih dahulu dari keranjang belanja.</p>
             <Link href="/cart" className="btn btn-primary text-white">
               Kembali ke Keranjang
             </Link>
