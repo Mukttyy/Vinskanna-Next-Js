@@ -8,6 +8,7 @@ const config: Config = {
   // Keep preflight false during gradual migration so unmigrated pages remain 100% untouched
   corePlugins: {
     preflight: false,
+    container: false,
   },
   theme: {
     extend: {
