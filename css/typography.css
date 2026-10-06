@@ -1,0 +1,62 @@
+/* Vinskanna typography source of truth. See docs/typography.md. */
+@font-face { font-family: 'Poppins'; font-style: normal; font-weight: 400; font-display: swap; src: url('../fonts/poppins/Poppins-Regular.ttf') format('truetype'); }
+@font-face { font-family: 'Poppins'; font-style: normal; font-weight: 500; font-display: swap; src: url('../fonts/poppins/Poppins-Medium.ttf') format('truetype'); }
+@font-face { font-family: 'Poppins'; font-style: normal; font-weight: 600; font-display: swap; src: url('../fonts/poppins/Poppins-SemiBold.ttf') format('truetype'); }
+@font-face { font-family: 'Poppins'; font-style: normal; font-weight: 700; font-display: swap; src: url('../fonts/poppins/Poppins-Bold.ttf') format('truetype'); }
+@font-face { font-family: 'Kaisei Tokumin'; font-style: normal; font-weight: 400; font-display: swap; src: url('../fonts/kaisei-tokumin/KaiseiTokumin-Regular.ttf') format('truetype'); }
+@font-face { font-family: 'Kaisei Tokumin'; font-style: normal; font-weight: 700; font-display: swap; src: url('../fonts/kaisei-tokumin/KaiseiTokumin-Bold.ttf') format('truetype'); }
+:root {
+    --font-ui: 'Poppins', Arial, sans-serif;
+    --font-display: 'Kaisei Tokumin', Georgia, serif;
+    --sm-font: var(--font-ui);
+    --lg-font: var(--font-display);
+    --text-badge: .625rem;
+    --text-caption: .75rem;
+    --text-meta: .8125rem;
+    --text-small: .875rem;
+    --text-body: 1rem;
+    --text-emphasis: 1.125rem;
+    --text-subheading: 1.25rem;
+    --text-brand: 1.625rem;
+    --text-section: 2rem;
+    --text-display: clamp(2rem, 4.2vw, 3.75rem);
+    --text-banner: clamp(1.75rem, 3.5vw, 3rem);
+    --weight-regular: 400;
+    --weight-medium: 500;
+    --weight-semibold: 600;
+    --weight-bold: 700;
+    --leading-tight: 1.25;
+    --leading-ui: 1.5;
+    --leading-body: 1.65;
+}
+@media (max-width: 575px) {
+    :root { --text-section: 1.5rem; --text-brand: 1.5rem; }
+}
+body { font-family: var(--font-ui); font-size: var(--text-body); font-weight: var(--weight-regular); line-height: var(--leading-body); }
+button, input, select, textarea { font-family: inherit; }
+h1, h2, h3, h4, h5, h6 { line-height: var(--leading-tight); font-weight: var(--weight-medium); }
+.type-display { font: var(--weight-bold) var(--text-display)/var(--leading-tight) var(--font-display); }
+.type-brand { font: var(--weight-regular) var(--text-brand)/var(--leading-tight) var(--font-display); letter-spacing: .08em; }
+.type-section { font-size: var(--text-section); font-weight: var(--weight-medium); line-height: var(--leading-tight); }
+.type-subheading { font-size: var(--text-subheading); font-weight: var(--weight-semibold); line-height: var(--leading-ui); }
+.type-body, .type-product { font-size: var(--text-body); font-weight: var(--weight-regular); line-height: var(--leading-body); }
+.type-price { font-size: var(--text-body); font-weight: var(--weight-semibold); line-height: var(--leading-ui); font-variant-numeric: tabular-nums; }
+.type-total { font-size: var(--text-emphasis); font-weight: var(--weight-bold); line-height: var(--leading-ui); font-variant-numeric: tabular-nums; }
+.type-label { font-size: var(--text-small); font-weight: var(--weight-medium); line-height: var(--leading-ui); }
+.type-caption { font-size: var(--text-caption); font-weight: var(--weight-regular); line-height: var(--leading-ui); }
+
+/* Existing components use the same roles as the UI kit. Loaded after main.css. */
+.title h2 { font-size: var(--text-section); font-weight: var(--weight-medium); }
+#header .hero-copy h1, .offers-content h2 { font-size: var(--text-display); font-weight: var(--weight-bold); }
+#header .hero-copy h2, .offers-content span { font-size: var(--text-subheading); }
+.bouquet-banner-content h2 { font-size: var(--text-banner); line-height: var(--leading-tight); font-weight: var(--weight-regular); }
+.product-card p, .cart-item-details h3 { font-size: var(--text-body); font-weight: var(--weight-regular); line-height: var(--leading-ui); }
+.product-card .fw-bold { font-weight: var(--weight-semibold) !important; }
+.product-card .fw-bold, .cart-item-price, .cart-line-total { font-size: var(--text-body); font-weight: var(--weight-semibold); font-variant-numeric: tabular-nums; }
+.cart-summary h3 { font-size: var(--text-subheading); font-weight: var(--weight-semibold); }
+.cart-summary .cart-total { font-size: var(--text-emphasis); font-weight: var(--weight-bold); font-variant-numeric: tabular-nums; }
+.vinskanna-footer .brand { font-size: var(--text-brand); font-weight: var(--weight-regular); }
+.cart-quantity input { font-variant-numeric: tabular-nums; }
+.cart-toolbar, .cart-column-label { font-size: var(--text-small); }
+.navbar .nav-link, .btn, .search-submit, .cart-text-button { font-weight: var(--weight-medium); line-height: var(--leading-ui); }
+.lead { font-size: var(--text-emphasis); font-weight: var(--weight-regular); }

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vinskanna — Typography UI Kit</title>
+<link rel="stylesheet" href="bootstrap-5.0.2-dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/typography.css">
+<link rel="stylesheet" href="css/ui-kit.css">
+</head>
+<body class="kit-page">
+<header class="kit-header"><div class="container"><a href="index.html" class="type-brand">Vinskanna</a><nav aria-label="UI kit"><a href="#scale">Skala</a><a href="#examples">Komponen</a><a href="#rules">Aturan</a></nav></div></header>
+<main class="container kit-main">
+<section class="kit-intro"><p class="type-label text-primary">PANDUAN PENGEMBANGAN</p><h1 class="type-display">Tipografi Vinskanna</h1><p class="type-body">Satu sistem untuk halaman koleksi, keranjang, dan komponen berikutnya. Font lokal, ukuran terpusat, dan penekanan yang konsisten.</p><p class="type-caption">Poppins 400 / 500 / 600 / 700 · Kaisei Tokumin 400 / 700</p></section>
+<section id="scale"><h2 class="type-section">Skala tipografi</h2><div class="kit-scale">
+<div><code>.type-display</code><p class="type-display">Bunga untuk setiap cerita</p></div>
+<div><code>.type-brand</code><p class="type-brand">Vinskanna</p></div>
+<div><code>.type-section</code><p class="type-section">Koleksi Pilihan</p></div>
+<div><code>.type-subheading</code><p class="type-subheading">Ringkasan Belanja</p></div>
+<div><code>.type-product</code><p class="type-product">Rose Baby Breath</p></div>
+<div><code>.type-body</code><p class="type-body">Rangkaian bunga untuk hadiah, perayaan, dan momen kecil yang berarti.</p></div>
+<div><code>.type-price</code><p class="type-price">Rp 420.000</p></div>
+<div><code>.type-total</code><p class="type-total">Rp 1.900.000</p></div>
+<div><code>.type-label</code><p class="type-label">Kode voucher</p></div>
+<div><code>.type-caption</code><p class="type-caption">Ongkir belum termasuk.</p></div>
+</div></section>
+<section id="examples"><h2 class="type-section">Penggunaan dalam komponen</h2><div class="kit-examples">
+<article class="kit-panel"><h3 class="type-subheading">Informasi produk</h3><p class="type-product">Pink Blossom Delight</p><p class="type-price">Rp 1.900.000</p><p class="type-caption">Nama produk regular, harga semibold.</p><div class="product-actions"><a href="index.html#collection" class="btn add-to-cart">Lihat Koleksi</a></div></article>
+<article class="kit-panel"><h3 class="type-subheading">Ringkasan Belanja</h3><div class="kit-total"><span class="type-body">Total (2 barang)</span><strong class="type-total">Rp 840.000</strong></div><p class="type-caption">Nominal memakai tabular-nums untuk lebar angka yang stabil.</p><label class="type-label" for="kit-voucher">Kode voucher</label><input id="kit-voucher" class="form-control" placeholder="Contoh: VINSKANNA10" aria-describedby="kit-hint"><p id="kit-hint" class="type-caption">Contoh tampilan formulir, tidak mengklaim voucher.</p></article>
+</div></section>
+<section id="rules"><h2 class="type-section">Aturan singkat</h2><ol class="type-body"><li>Poppins untuk UI; Kaisei Tokumin untuk merek dan judul promosi.</li><li>Nama produk 16 px regular, harga 16 px semibold, total 18 px bold.</li><li>Gunakan kelas peran; jangan membuat ukuran baru untuk setiap halaman.</li><li>Pilih level heading berdasarkan struktur dokumen, bukan ukuran visual.</li><li>Izinkan teks panjang membungkus. Periksa ponsel dan zoom 200%.</li></ol><p class="type-body">Panduan lengkap: <a href="docs/typography.md">docs/typography.md</a>. Sumber token: <a href="css/typography.css">css/typography.css</a>.</p></section>
+</main>
+<footer class="kit-footer container"><p class="type-caption">UI kit pengembangan Vinskanna · <a href="index.html">Kembali ke toko</a></p></footer>
+</body></html>

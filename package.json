@@ -1,0 +1,11 @@
+{
+  "name": "vinskanna-storefront-template",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Template katalog buket bunga statis dengan keranjang demo",
+  "scripts": {
+    "test": "node --test tests/store.test.cjs",
+    "test:browser": "node tests/browser.cjs"
+  },
+  "devDependencies": { "playwright": "1.63.0" }
+}
