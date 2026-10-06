@@ -138,9 +138,9 @@ export default function HomePage() {
         {/* offers */}
         <section id="offers" className="offers-band" aria-labelledby="offers-title">
           <div className="container">
-            <div className="row d-flex align-items-center justify-content-center text-center justify-content-lg-start text-lg-start">
-              <div className="offers-content">
-                <span className="text-white">Discount Up To 40%</span>
+            <div className="row d-flex align-items-center justify-content-end text-end">
+              <div className="col-12 col-md-7 col-lg-6 offers-content text-end">
+                <span className="text-white d-block">Discount Up To 40%</span>
                 <h2 id="offers-title" className="mt-2 mb-4 text-white">Grand Sale Offer!</h2>
                 <a href="#collection" className="btn">Buy Now</a>
               </div>
@@ -242,3 +242,4 @@ export default function HomePage() {
     </>
   );
 }
+
