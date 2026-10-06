@@ -587,8 +587,13 @@ export default function OrderDetailPage({ params }: PageProps) {
                               {!reviewForm.isOpen && !existingReview && (
                                 <button
                                   type="button"
-                                  className="btn btn-outline-primary btn-sm w-100 py-1"
-                                  style={{ fontSize: 'var(--text-caption)' }}
+                                  className="btn btn-outline-primary w-100 fw-medium"
+                                  style={{
+                                    fontSize: 'var(--text-small)',
+                                    paddingTop: '10px',
+                                    paddingBottom: '10px',
+                                    borderRadius: '25px'
+                                  }}
                                   onClick={() =>
                                     setReviewForms((prev) => ({
                                       ...prev,
