@@ -239,7 +239,127 @@ footer a:hover{
     .product-card:focus-within .product-image { transition: none; transform: none; }
 }
 
-.store-status { position: fixed; top: calc(var(--navbar-height, 92px) + 1rem); right: 1.5rem; bottom: auto; left: auto; transform: none; z-index: 1100; background: #212529; color: white; padding: 0.875rem 1.25rem; border-radius: 8px; width: min(90vw, 380px); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18); font-size: var(--text-small); line-height: var(--leading-ui); }
+/* DaisyUI Alert component styles & positioning */
+.alert {
+    display: grid;
+    width: auto;
+    grid-auto-flow: column;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    justify-items: start;
+    gap: 0.875rem;
+    text-align: start;
+    border-radius: 1rem;
+    padding: 0.875rem 1.25rem;
+    background-color: #212529;
+    color: #f8f9fa;
+    border: 1px solid transparent;
+    font-size: var(--text-small);
+    line-height: var(--leading-ui);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.18), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+}
+
+.alert svg,
+.alert .h-6 {
+    width: 1.5rem;
+    height: 1.5rem;
+    flex-shrink: 0;
+    stroke-width: 2;
+}
+
+.alert span {
+    font-family: var(--font-ui, 'Poppins', sans-serif);
+    font-weight: var(--weight-medium, 500);
+    font-size: var(--text-small);
+    line-height: var(--leading-ui);
+}
+
+/* DaisyUI Color Variants */
+.alert-info {
+    background-color: #0284c7;
+    color: #ffffff;
+    border-color: #0369a1;
+}
+
+.alert-success {
+    background-color: #00a96e;
+    color: #ffffff;
+    border-color: #008f5d;
+}
+
+.alert-warning {
+    background-color: #f59e0b;
+    color: #1f2937;
+    border-color: #d97706;
+}
+
+.alert-error {
+    background-color: #ef4444;
+    color: #ffffff;
+    border-color: #dc2626;
+}
+
+/* DaisyUI Soft Variants */
+.alert-soft.alert-info {
+    background-color: #e0f2fe;
+    color: #0369a1;
+    border-color: #bae6fd;
+}
+.alert-soft.alert-success {
+    background-color: #dcfce7;
+    color: #15803d;
+    border-color: #bbf7d0;
+}
+.alert-soft.alert-warning {
+    background-color: #fef3c7;
+    color: #92400e;
+    border-color: #fde68a;
+}
+.alert-soft.alert-error {
+    background-color: #fee2e2;
+    color: #b91c1c;
+    border-color: #fecaca;
+}
+
+/* DaisyUI utility helpers */
+.stroke-current { stroke: currentColor; }
+.shrink-0 { flex-shrink: 0; }
+
+/* Positioning for Toast: top-right corner */
+.store-status {
+    position: fixed;
+    top: calc(var(--navbar-height, 92px) + 1rem);
+    right: 1.5rem;
+    bottom: auto;
+    left: auto;
+    transform: none;
+    z-index: 1100;
+    width: auto;
+    max-width: min(90vw, 420px);
+    cursor: pointer;
+    user-select: none;
+    animation: alertSlideIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes alertSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-8px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@media (max-width: 575px) {
+    .store-status {
+        top: calc(var(--navbar-height, 92px) + 0.5rem);
+        right: 1rem;
+        left: 1rem;
+        max-width: calc(100vw - 2rem);
+    }
+}
 :focus-visible { outline: 3px solid #76213a; outline-offset: 3px; }
 @media (max-width: 575px) {
     .nav-btns { display: flex; flex-wrap: wrap; gap: .3rem; width: 100%; margin-top: .5rem; }

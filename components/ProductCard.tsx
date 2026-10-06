@@ -16,16 +16,16 @@ export function ProductCard({ product, isWishlistPage = false }: ProductCardProp
   const handleAddToCart = () => {
     if (isWishlistPage) {
       const res = moveToCart(product.id);
-      notify(res.message);
+      notify(res.message, res.success ? 'success' : 'error');
     } else {
       const res = addToCart(product.id);
-      notify(res.message);
+      notify(res.message, res.success ? 'success' : 'error');
     }
   };
 
   const handleToggleWishlist = () => {
     const res = toggleWishlist(product.id);
-    notify(res.message);
+    notify(res.message, res.active ? 'success' : 'info');
   };
 
   const wishlistLabel = isWishlisted ? 'Hapus dari wishlist' : 'Tambah ke wishlist';

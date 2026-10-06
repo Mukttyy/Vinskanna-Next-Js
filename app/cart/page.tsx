@@ -152,7 +152,7 @@ export default function CartPage() {
                     disabled={currentSelected.size === 0}
                     onClick={() => {
                       removeSelectedCart(Array.from(currentSelected));
-                      notify('Produk terpilih dihapus dari keranjang.');
+                      notify('Produk terpilih dihapus dari keranjang.', 'info');
                     }}
                   >
                     Hapus
@@ -239,7 +239,7 @@ export default function CartPage() {
                           aria-pressed={isWishlisted}
                           onClick={() => {
                             const res = toggleWishlist(p.id);
-                            notify(res.message);
+                            notify(res.message, res.active ? 'success' : 'info');
                           }}
                         >
                           <svg
@@ -266,7 +266,7 @@ export default function CartPage() {
                           title="Hapus produk"
                           onClick={() => {
                             removeCartItem(p.id);
-                            notify('Produk dihapus dari keranjang.');
+                            notify('Produk dihapus dari keranjang.', 'info');
                           }}
                         >
                           <svg
