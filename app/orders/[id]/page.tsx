@@ -209,7 +209,7 @@ export default function OrderDetailPage({ params }: PageProps) {
     <main className="cart-page" style={{ minHeight: '80vh' }}>
       <div className="container py-2">
         {/* Navigasi Kembali */}
-        <div className="mb-4">
+        <div style={{ marginBottom: '28px' }}>
           <Link href="/orders" className="btn-back-nav">
             <svg
               width="16"
