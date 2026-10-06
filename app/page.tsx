@@ -1,12 +1,20 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { allProducts } from '@/data/products';
 import { ProductCard } from '@/components/ProductCard';
 
 export default function HomePage() {
   const [activeFilter, setActiveFilter] = useState<'*' | 'best' | 'feat' | 'new'>('*');
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev === 0 ? 1 : 0));
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
 
   const regularProducts = allProducts.filter((p) => p.category !== 'special');
   const specialProducts = allProducts.filter((p) => p.category === 'special');
@@ -19,20 +27,46 @@ export default function HomePage() {
     <>
       {/* header */}
       <header id="header" className="carousel slide" data-bs-ride="carousel" data-bs-interval="5000" data-bs-pause="false">
-        <div className="carousel-inner">
-          <div className="carousel-item active">
-            <div className="container h-100 d-flex align-items-center justify-content-center text-center">
-              <div className="hero-copy">
-                <h2 className="text-capitalize text-white">best collection</h2>
-                <h1 className="text-uppercase py-2 fw-bold text-white">new arrivals</h1>
-                <a href="#collection" className="btn mt-3 text-uppercase">shop now</a>
-              </div>
+        <div className="container h-100 carousel-inner">
+          <div className={`text-center carousel-item ${currentSlide === 0 ? 'active' : ''}`}>
+            <div className="hero-copy">
+              <h2 className="text-capitalize text-black">best collection</h2>
+              <h1 className="text-uppercase fw-bold text-black">new arrivals</h1>
+              <a href="#collection" className="btn text-uppercase">shop now</a>
+            </div>
+          </div>
+          <div className={`text-center carousel-item ${currentSlide === 1 ? 'active' : ''}`}>
+            <div className="hero-copy">
+              <h2 className="text-capitalize text-black">best price &amp; offer</h2>
+              <h1 className="text-uppercase fw-bold text-black">new season</h1>
+              <a href="#collection" className="btn text-uppercase">buy now</a>
             </div>
           </div>
         </div>
-      </header>
 
-      {/* storefront layout */}
+        <button
+          className="carousel-control-prev"
+          type="button"
+          aria-label="Slide sebelumnya"
+          data-bs-target="#header"
+          data-bs-slide="prev"
+          onClick={() => setCurrentSlide((prev) => (prev === 0 ? 1 : 0))}
+        >
+          <span className="carousel-control-prev-icon"></span>
+        </button>
+        <button
+          className="carousel-control-next"
+          type="button"
+          aria-label="Slide berikutnya"
+          data-bs-target="#header"
+          data-bs-slide="next"
+          onClick={() => setCurrentSlide((prev) => (prev === 0 ? 1 : 0))}
+        >
+          <span className="carousel-control-next-icon"></span>
+        </button>
+      </header>
+      {/* end of header */}
+
       <main className="storefront-layout">
         {/* collection */}
         <section id="collection" className="section-spaced">

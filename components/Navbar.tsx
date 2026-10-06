@@ -27,6 +27,17 @@ export function Navbar() {
       searchInputRef.current.focus();
     }
   }, [isSearchOpen]);
+  useEffect(() => {
+    const navbar = document.querySelector('.navbar');
+    if (!navbar) return;
+    const sync = () => {
+      document.documentElement.style.setProperty('--navbar-height', `${navbar.getBoundingClientRect().height}px`);
+    };
+    sync();
+    const observer = new ResizeObserver(sync);
+    observer.observe(navbar);
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
