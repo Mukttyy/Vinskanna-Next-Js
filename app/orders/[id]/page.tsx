@@ -208,33 +208,36 @@ export default function OrderDetailPage({ params }: PageProps) {
   return (
     <main className="cart-page" style={{ minHeight: '80vh' }}>
       <div className="container py-2">
-        {/* Navigasi Kembali */}
-        <div style={{ marginBottom: '28px' }}>
-          <Link href="/orders" className="btn-back-nav">
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-hidden="true"
-            >
-              <line x1="19" y1="12" x2="5" y2="12"></line>
-              <polyline points="12 19 5 12 12 5"></polyline>
-            </svg>
-            <span>Kembali ke Daftar Pesanan</span>
-          </Link>
-        </div>
-
-        {/* Header Judul & Status */}
+        {/* Header Judul, Navigasi Kembali, & Status */}
         <div className="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
-          <div>
-            <h1 className="h3 fw-bold mb-1">Pesanan {order.id}</h1>
-            <div className="text-muted" style={{ fontSize: 'var(--text-caption)' }}>
-              Dibuat pada {new Date(order.createdAt).toLocaleString('id-ID', { dateStyle: 'long', timeStyle: 'short' })}
+          <div className="d-flex align-items-center gap-3">
+            <Link
+              href="/orders"
+              className="btn-back-circle"
+              title="Kembali ke Daftar Pesanan"
+              aria-label="Kembali ke Daftar Pesanan"
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+              </svg>
+            </Link>
+
+            <div>
+              <h1 className="h3 fw-bold mb-1">Pesanan {order.id}</h1>
+              <div className="text-muted" style={{ fontSize: 'var(--text-caption)' }}>
+                Dibuat pada {new Date(order.createdAt).toLocaleString('id-ID', { dateStyle: 'long', timeStyle: 'short' })}
+              </div>
             </div>
           </div>
 
