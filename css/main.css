@@ -24,6 +24,30 @@ body{
     border-color: var(--pink);
 }
 
+.btn.btn-primary {
+    background-color: var(--pink) !important;
+    color: #ffffff !important;
+    border-color: var(--pink) !important;
+}
+.btn.btn-primary:hover,
+.btn.btn-primary:focus {
+    background-color: #cf274c !important;
+    border-color: #cf274c !important;
+    color: #ffffff !important;
+}
+
+.btn.btn-outline-primary {
+    background-color: transparent !important;
+    color: var(--pink) !important;
+    border-color: var(--pink) !important;
+}
+.btn.btn-outline-primary:hover,
+.btn.btn-outline-primary:focus {
+    background-color: var(--pink) !important;
+    color: #ffffff !important;
+    border-color: var(--pink) !important;
+}
+
 /* text color */
 .text-primary{
     color: var(--pink)!important;
@@ -69,7 +93,8 @@ body{
 }
 
 /* title */
-.title h2::before{
+.title h2::before,
+.title h1::before{
     position: absolute;
     content: "";
     width: 4px;
@@ -138,8 +163,8 @@ body{
 .storefront-layout > section { margin-block: 0; }
 #about.section-spaced { padding-block: var(--about-padding); }
 .storefront-footer { padding-block: var(--section-space); }
-.storefront-layout .title h2 { margin-bottom: 0; }
-.storefront-layout .title h2::before { height: 1.25em; }
+.storefront-layout .title h2, .storefront-layout .title h1 { margin-bottom: 0; }
+.storefront-layout .title h2::before, .storefront-layout .title h1::before { height: 1.25em; }
 .storefront-layout .product-card { padding-top: 0 !important; padding-bottom: 0 !important; }
 .storefront-layout .collection-list, .storefront-layout .special-list { --bs-gutter-y: 0; row-gap: 34px; }
 #blogs .row { --bs-gutter-y: 0; row-gap: 34px; }

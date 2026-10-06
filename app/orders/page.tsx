@@ -39,7 +39,7 @@ export default function OrdersPage() {
     <main className="cart-page" style={{ minHeight: '80vh' }}>
       <div className="container py-2">
         <div className="title text-center mb-4">
-          <h1 className="h2 position-relative d-inline-block fw-bold">Pesanan Saya</h1>
+          <h2 className="position-relative d-inline-block">Pesanan Saya</h2>
         </div>
 
         {/* Status Filter Tabs */}
