@@ -590,8 +590,8 @@ export default function OrderDetailPage({ params }: PageProps) {
                                   className="btn btn-outline-primary w-100 fw-medium"
                                   style={{
                                     fontSize: 'var(--text-small)',
-                                    paddingTop: '10px',
-                                    paddingBottom: '10px',
+                                    paddingTop: '7px',
+                                    paddingBottom: '7px',
                                     borderRadius: '25px'
                                   }}
                                   onClick={() =>
