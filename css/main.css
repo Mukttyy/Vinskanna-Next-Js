@@ -239,8 +239,7 @@ footer a:hover{
     .product-card:focus-within .product-image { transition: none; transform: none; }
 }
 
-.quantity-input { min-width: 75px; max-width: 100px; }
-.store-status { position: fixed; bottom: 1rem; left: 50%; transform: translateX(-50%); z-index: 1100; background: #212529; color: white; padding: 1rem; border-radius: 8px; width: min(90vw, 480px); box-shadow: 0 3px 12px #0003; }
+.store-status { position: fixed; top: calc(var(--navbar-height, 92px) + 1rem); right: 1.5rem; bottom: auto; left: auto; transform: none; z-index: 1100; background: #212529; color: white; padding: 0.875rem 1.25rem; border-radius: 8px; width: min(90vw, 380px); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18); font-size: var(--text-small); line-height: var(--leading-ui); }
 :focus-visible { outline: 3px solid #76213a; outline-offset: 3px; }
 @media (max-width: 575px) {
     .nav-btns { display: flex; flex-wrap: wrap; gap: .3rem; width: 100%; margin-top: .5rem; }
