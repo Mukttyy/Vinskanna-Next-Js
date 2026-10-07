@@ -195,9 +195,6 @@ export function Navbar() {
             <li className="nav-item px-2 py-2">
               <Link className="nav-link text-uppercase text-dark" href="/#about" onClick={() => setIsNavOpen(false)}>about us</Link>
             </li>
-            <li className="nav-item px-2 py-2">
-              <Link className="nav-link text-uppercase text-dark" href="/orders" onClick={() => setIsNavOpen(false)}>pesanan</Link>
-            </li>
           </ul>
         </div>
       </div>
