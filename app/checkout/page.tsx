@@ -126,7 +126,7 @@ export default function CheckoutPage() {
 
   if (!isLoaded) {
     return (
-      <main className="cart-page mt-[var(--navbar-height,100px)] pt-6 pb-12 sm:pt-8 sm:pb-16 bg-[#faf8f9] min-h-[60vh]">
+      <main className="cart-page mt-[var(--navbar-height,100px)] pt-6 pb-12 sm:pt-8 sm:pb-16 bg-page min-h-[60vh]">
         <div className="w-full mx-auto px-3 sm:max-w-[540px] md:max-w-[720px] lg:max-w-[960px] xl:max-w-[1140px] 2xl:max-w-[1320px] py-12 text-center">
           <p className="text-[#6c757d] text-sm">Memuat halaman checkout...</p>
         </div>
@@ -136,7 +136,7 @@ export default function CheckoutPage() {
 
   if (checkoutItems.length === 0) {
     return (
-      <main className="cart-page mt-[var(--navbar-height,100px)] pt-6 pb-12 sm:pt-8 sm:pb-16 bg-[#faf8f9] min-h-[75vh]">
+      <main className="cart-page mt-[var(--navbar-height,100px)] pt-6 pb-12 sm:pt-8 sm:pb-16 bg-page min-h-[75vh]">
         <div className="w-full mx-auto px-3 sm:max-w-[540px] md:max-w-[720px] lg:max-w-[960px] xl:max-w-[1140px] 2xl:max-w-[1320px]">
           <div className="title text-center mb-6 sm:mb-8">
             <h2 className="relative inline-block text-[1.5rem] sm:text-[2rem] font-medium leading-[1.25] text-[#212529] before:content-[''] before:absolute before:w-1 before:h-[50px] before:bg-pink before:-left-5 before:top-1/2 before:-translate-y-1/2">
@@ -163,7 +163,7 @@ export default function CheckoutPage() {
   }
 
   return (
-    <main className="cart-page mt-[var(--navbar-height,100px)] pt-6 pb-12 sm:pt-8 sm:pb-16 bg-[#faf8f9] min-h-[75vh]">
+    <main className="cart-page mt-[var(--navbar-height,100px)] pt-6 pb-12 sm:pt-8 sm:pb-16 bg-page min-h-[75vh]">
       <div className="w-full mx-auto px-3 sm:max-w-[540px] md:max-w-[720px] lg:max-w-[960px] xl:max-w-[1140px] 2xl:max-w-[1320px]">
         <div className="title text-center mb-6 sm:mb-8">
           <h2 className="relative inline-block text-[1.5rem] sm:text-[2rem] font-medium leading-[1.25] text-[#212529] before:content-[''] before:absolute before:w-1 before:h-[50px] before:bg-pink before:-left-5 before:top-1/2 before:-translate-y-1/2">
